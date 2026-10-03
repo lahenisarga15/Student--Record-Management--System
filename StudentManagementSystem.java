@@ -128,26 +128,19 @@ public class StudentManagementSystem {
     // Delete Student
     public static void deleteStudent() {
 
-        System.out.print("Enter Student ID to delete: ");
-        int id = sc.nextInt();
+    System.out.print("Enter Student ID to delete: ");
+    int id = sc.nextInt();
 
-        boolean found = false;
+    for (int i = 0; i < students.size(); i++) {
 
-        for (Student s : students) {
+        if (students.get(i).getId() == id) {
 
-            if (s.getId() == id) {
+            students.remove(i);
 
-                students.remove(s);
-
-                System.out.println("Student deleted successfully!");
-
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            System.out.println("Student with ID " + id + " not found.");
+            System.out.println("Student deleted successfully!");
+            return;
         }
     }
-}
+
+    System.out.println("Student with ID " + id + " not found.");
+    }
